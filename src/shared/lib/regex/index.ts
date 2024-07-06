@@ -1,1 +1,1 @@
-export const ONLY_LETTERS = /^[A-Za-z]*$/; // Regex to allow only letters
+export const ONLY_LETTERS_REGEX = /^[A-Za-z]*$/; // Regex to allow only letters

@@ -1,6 +1,6 @@
-import { Column } from "@shared/components/Table/Table";
+import type { Column } from '@shared/components/Table/types';
 
-import type ICountries from "../../model/types/Countries";
+import type { ICountries } from '../../model/types';
 
 export const COLUMNS: Column<ICountries>[] = [
   {

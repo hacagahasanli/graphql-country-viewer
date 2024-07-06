@@ -1,9 +1,9 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState, ChangeEvent } from 'react';
 
 import { useQuery } from '@apollo/client';
 
 import { BaseSizes } from '@shared/constants';
-import { ONLY_LETTERS } from '@shared/lib/regex';
+import { ONLY_LETTERS_REGEX } from '@shared/lib/regex';
 
 import {
   Table,
@@ -17,8 +17,7 @@ import { GET_COUNTRY_LIST } from '../../api/queries';
 
 import { COLUMNS } from './consts';
 
-import type ICountries from '../../model/types/Countries';
-import type ICountryList from '../../model/types/CountryList';
+import type { ICountries, ICountryList } from '../../model/types';
 
 import { CounryListWrapper } from './CountryList.styled';
 
@@ -31,24 +30,23 @@ function onfilterCountries(countries: ICountries[], countryCode: string) {
 const CountryList: React.FC = () => {
   const [countryCode, setCountryCode] = useState<string>('');
 
-  const { loading, error, data } = useQuery(GET_COUNTRY_LIST);
+  const { loading: isLoading, error, data } = useQuery(GET_COUNTRY_LIST);
 
   const { countries } = data ?? ({} as ICountryList);
 
-  const onFilterChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      if (ONLY_LETTERS.test(event.target.value))
-        setCountryCode(event.target.value);
-    },
-    []
-  );
+  const onFilterChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+    if (ONLY_LETTERS_REGEX.test(event.target.value))
+      setCountryCode(event.target.value);
+  }, []);
 
   const filteredCountries = useMemo(
     () => onfilterCountries(countries, countryCode),
     [countries, countryCode]
   );
 
-  if (loading) return <Loading />;
+  const tableData = countryCode ? filteredCountries : countries;
+
+  if (isLoading) return <Loading />;
   if (error) return <ErrorMessage />;
 
   return (
@@ -60,12 +58,7 @@ const CountryList: React.FC = () => {
         onChange={onFilterChange}
         placeholder='Filter by country code...'
       />
-      {!!countries.length && (
-        <Table
-          columns={COLUMNS}
-          data={countryCode ? filteredCountries : countries}
-        />
-      )}
+      {!!countries?.length && <Table data={tableData} columns={COLUMNS} />}
     </CounryListWrapper>
   );
 };
