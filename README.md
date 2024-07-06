@@ -1,15 +1,13 @@
-React + TypeScript + Vite + Graphql
-
 ## Installation
 
-For package installing please run
+For package installation please run
 
     yarn
 
-For starting application please run
+To start the application please run
 
     yarn dev
 
 ## Notice
 
-Your node version should be compatible with `^18 || >=20`
+Your node version should be greater than `^18 || >=20`
