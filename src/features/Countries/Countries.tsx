@@ -1,4 +1,4 @@
-import { CountryList } from '@entities/Countries/List/ui';
+import { CountryList } from '@entities/Countries';
 
 import { StyledContainer, StyledTitle } from './Countries.styled';
 
