@@ -1,10 +1,10 @@
 import React, { ComponentType, ErrorInfo, ReactNode } from 'react';
 
-import { BoundaryDefaultState } from './consts';
+import { BoundaryDefaultState } from './helpers/consts';
 
 import { FallBack } from '..';
 
-import type { ErrorBoundaryState } from './types';
+import type { ErrorBoundaryState } from './helpers/types';
 
 const withErrorBoundary = <P extends object>(
   WrappedComponent: ComponentType<P>

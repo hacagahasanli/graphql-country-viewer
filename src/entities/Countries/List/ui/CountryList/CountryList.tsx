@@ -15,7 +15,7 @@ import {
 
 import { GET_COUNTRY_LIST } from '../../api/queries';
 
-import { COLUMNS } from './consts';
+import { COLUMNS, INPUT_PLACEHOLDER } from './consts';
 
 import type { ICountries, ICountryList } from '../../model/types';
 
@@ -56,7 +56,7 @@ const CountryList: React.FC = () => {
         size={BaseSizes.L}
         value={countryCode}
         onChange={onFilterChange}
-        placeholder='Filter by country code...'
+        placeholder={INPUT_PLACEHOLDER}
       />
       {!!countries?.length && <Table data={tableData} columns={COLUMNS} />}
     </CounryListWrapper>

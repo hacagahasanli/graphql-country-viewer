@@ -1,4 +1,4 @@
-import type { Column } from '@shared/components/Table/types';
+import type { Column } from '@shared/components/Table/helpers/types';
 
 import type { ICountries } from '../../model/types';
 
@@ -12,3 +12,5 @@ export const COLUMNS: Column<ICountries>[] = [
     headingRender: 'Country Code',
   },
 ];
+
+export const INPUT_PLACEHOLDER = 'Filter by country code...';
