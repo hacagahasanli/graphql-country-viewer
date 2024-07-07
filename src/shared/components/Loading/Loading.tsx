@@ -1,12 +1,17 @@
-import React from 'react';
+import { FC } from 'react';
 
-import { CenteredContainer } from '@styles/global.styled';
+import { DEFAULT_LOADING_DATA_TEST_ID } from '@shared/constants';
+
+import type { ILoadingProps } from './helpers/types';
 
 import { Spinner } from './Loading.styled';
+import { CenteredContainer } from '@styles/global.styled';
 
-const Loading: React.FC = () => {
+const Loading: FC<ILoadingProps> = ({
+  dataTestId = DEFAULT_LOADING_DATA_TEST_ID,
+}) => {
   return (
-    <CenteredContainer>
+    <CenteredContainer data-testid={dataTestId}>
       <Spinner />
     </CenteredContainer>
   );

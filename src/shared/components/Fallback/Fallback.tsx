@@ -1,12 +1,18 @@
 import { FC } from 'react';
 
-import { FallbackContainer, FallbackMessage } from './Fallback.styled';
+import { DEFAULT_FALLBACK_DATA_TEST_ID } from '@shared/constants';
 
-import type { IFallbackProps } from './types';
+import type { IFallbackProps } from './helpers/types';
 
-const FallBack: FC<IFallbackProps> = ({ error, info }) => {
+import { FallbackContainer, FallbackMessage } from './FallBack.styled';
+
+const FallBack: FC<IFallbackProps> = ({
+  info,
+  error,
+  dataTestId = DEFAULT_FALLBACK_DATA_TEST_ID,
+}) => {
   return (
-    <FallbackContainer>
+    <FallbackContainer data-testid={dataTestId}>
       <FallbackMessage>{error}</FallbackMessage>
       <FallbackMessage>{info}</FallbackMessage>
     </FallbackContainer>

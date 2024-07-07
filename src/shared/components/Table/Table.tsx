@@ -1,14 +1,20 @@
 import NotFound from '../NotFound/NotFound';
 
+import { DEFAULT_TABLE_DATA_TEST_ID } from '@shared/constants';
+
+import type { TableProps } from './helpers/types';
+
 import { TableWrapper, TableContainer, Th, Td, Tr } from './Table.styled';
 
-import type { TableProps } from './types';
-
-const Table = <T extends any>({ columns, data }: TableProps<T>) => {
+const Table = <T extends any>({
+  data,
+  columns,
+  dataTestId = DEFAULT_TABLE_DATA_TEST_ID,
+}: TableProps<T>) => {
   const isEmpty = !data?.length;
 
   return (
-    <div>
+    <div data-testid={dataTestId}>
       {!isEmpty && (
         <TableContainer>
           <TableWrapper>
@@ -31,6 +37,7 @@ const Table = <T extends any>({ columns, data }: TableProps<T>) => {
           </TableWrapper>
         </TableContainer>
       )}
+
       {isEmpty && <NotFound />}
     </div>
   );

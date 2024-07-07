@@ -36,5 +36,5 @@
       "@features/*": ["src/features/*"],
     }
   },
-  "include": ["src"]
+  "include": ["src", "src/test/vitest.setup.ts"]
 }
