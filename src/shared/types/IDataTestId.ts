@@ -1,5 +1,5 @@
-interface IDateTestId {
+interface IDataTestId {
   dataTestId?: string;
 }
 
-export default IDateTestId;
+export default IDataTestId;
