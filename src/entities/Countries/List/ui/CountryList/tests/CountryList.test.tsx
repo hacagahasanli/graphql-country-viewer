@@ -1,5 +1,3 @@
-// CountryList.test.tsx
-
 import { describe, expect, test } from 'vitest';
 
 import { render, screen, waitFor } from '@testing-library/react';
