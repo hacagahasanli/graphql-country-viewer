@@ -1,5 +1,5 @@
-import type { IDateTestId } from "@shared/types";
+import type { IDataTestId } from "@shared/types";
 
-export interface INotFoundProps extends IDateTestId {
+export interface INotFoundProps extends IDataTestId {
     message?: string;
 }

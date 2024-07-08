@@ -1,5 +1,5 @@
-import type { IDateTestId } from "@shared/types";
+import type { IDataTestId } from "@shared/types";
 
-export interface IErrorProps extends IDateTestId {
+export interface IErrorProps extends IDataTestId {
   message?: string;
 }

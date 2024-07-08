@@ -1,3 +1,3 @@
-import type { IDateTestId } from '@shared/types';
+import type { IDataTestId } from '@shared/types';
 
-export interface ILoadingProps extends IDateTestId {}
+export interface ILoadingProps extends IDataTestId {}
